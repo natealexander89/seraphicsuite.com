@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    /* remove default margins, let video fill while preserving aspect */
+    html, body { margin: 0; height: 100%; }
+    video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; /* no distortion, no extra bars beyond browser default */ 
+    }
+  </style>
+  <title>Screen Recording</title>
+</head>
+<body>
+  <video 
+    src="video.mp4" 
+    controls 
+    playsinline
+  ></video>
+</body>
+</html>
 
