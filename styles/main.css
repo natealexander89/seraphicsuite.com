@@ -1,0 +1,828 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "Roboto Condensed", system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-synthesis-weight: none;
+    font-synthesis-style: none;
+}
+html, body{
+    overflow-x: hidden;
+}
+body{
+    margin: 0;
+    padding-top: 9%;
+}
+
+.flex-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.desktop-banner,
+.mobile-banner {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.desktop-banner{
+    display: block;
+    width: 100%;
+}
+.mobile-banner{
+    display: none;
+    width: 100%;
+}
+.ui-preview-mobile{
+    display: none;
+}
+@media (min-width: 1281px) {
+    .desktop-banner{
+        position: fixed;
+        top: -3px;          /* your vertical nudge */
+        left: -40px;        /* your horizontal nudge */
+        width: calc(100vw + 80px); /* 2×|left| to cover both sides */
+    }
+}
+/* ===== HERO SECTION ===== */
+.hero-section{
+    background-color: #868178;
+    padding: 10px;
+    height: 500px;
+    min-height: 500px;
+    transition: height 0.5s ease-out;
+    position: relative;
+    z-index: 2;
+    margin-top: -1.4rem;
+}
+/* ===== Hero sizing tokens (desktop defaults) ===== */
+:root {
+    --intro-col: 510px;   /* text column width (desktop) */
+    --rule: 510px;        /* underline width (desktop) */
+}
+
+/* ───────── Hero layout ───────── */
+.hero-content{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 24px;
+}
+
+/* ───────── Intro text column (Figma-accurate, zoom-safe) ───────── */
+.hero-left-side {
+    width:auto;
+    display:flex;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    padding:20px 0 20px 20px;
+    flex: 0 0 var(--intro-col);
+}
+
+.hero-left-side .intro {
+    width:100%;
+    max-width:var(--intro-col);
+    font-family:"Roboto Condensed",sans-serif;
+    font-weight:450;
+    letter-spacing:0;
+}
+
+/* Top paragraph: 20/23 centered */
+.intro-top {
+    font-size: 20px;
+    line-height: 23px;
+    margin: 25px 0 18px 0;
+}
+
+/* Middle “totally” line */
+.intro-mid {
+    font-size: 20px;
+    line-height: 23px;
+    margin: 0 0 22px 0;
+}
+.intro-mid .u {
+    text-decoration: underline;
+    text-underline-position: from-font;
+}
+
+/* Lead paragraph above bullets */
+.intro-lead {
+    font-size: 20px;
+    line-height: 23px;
+    margin: 0 0 18px 0;
+}
+
+/* Bullets: 18/30 with tight left padding to keep line-length compact */
+.intro-list {
+    list-style: disc;
+    text-align: left;
+    padding-left: 27px;
+    margin: 0 0 16px 0;
+}
+.intro-list li {
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 0 4px 0;
+}
+
+/* Thin rule under bullets */
+.intro-rule {
+    height:1px;
+    background:#ffffff;
+    width:var(--rule);
+    margin:10px auto 12px;
+    opacity:0.9;
+}
+
+
+/* Footer line: 16/19 centered */
+.intro-foot {
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0;
+}
+
+
+
+/* Tablet down—scale type but preserve proportions */
+@media (max-width: 1280px) {
+    .hero-left-side .intro { width: 267px; }   /* proportional to 430px desktop */
+    .intro-top,
+    .intro-mid,
+    .intro-lead { font-size: 10px; line-height: 12px; margin-bottom: 10px; }
+
+    .intro-list { padding-left: 13.5px; margin-bottom: 10px; }
+    .intro-list li { font-size: 9px; line-height: 15px; margin-bottom: 3px; }
+
+    .intro-rule { width: 252px; margin: 8px auto 10px; }
+
+    .intro-foot { font-size: 8px; line-height: 9px; }
+}
+
+.hero-right-side{
+    position:relative;
+    margin-top:-5.2rem;
+    overflow:hidden;
+    flex-shrink:0;
+    /* tweak the middle value (vw) if you want it smaller/larger */
+    width: clamp(780px, 67vw, 1079px);
+}
+.ui-preview-desktop{ width:100%; position:relative; }
+
+.hero-video {
+    position: absolute;
+    top: 37.4%;
+    left: 24.8%;
+    width: 73%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+/* Desktop Hero Transforms and Position*/
+@media (min-width: 1281px) {
+    .hero-content .hero-left-side {
+        transform: scale(0.85);
+        transform-origin: top left;
+        margin-left: 18px;
+    }
+    .hero-content .hero-right-side {
+        margin-left: -120px; /* tweak to taste */
+    }
+}
+/* Desktop: sticky Tutorials panel with correct underlap layering */
+@media (min-width: 1281px) {
+    /* hero background lowest of the two, but the UI/content sits on top */
+    .hero-section   { position: relative; z-index: 5; }   /* bg */
+    .hero-content   { position: relative; z-index: 15; }  /* UI/text above all */
+}
+
+/* ===== TUTORIALS AND DEMO SECTION ===== */
+.yt-videos-section{
+    background-color: #868178;
+    position: relative;
+    z-index: 1;
+
+    padding: 0px 7px 0 0;
+}
+.yt-videos-inner{
+    background-color: #D9D9D9;
+    padding: 4rem 0px 2rem 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 8px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 9rem;
+    padding-bottom: 1rem;
+
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease-out, transform 1s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: #000;
+    margin: 0 10px;
+}
+
+.title {
+    white-space: nowrap;
+    font-size: 36px;
+    font-weight: 500;
+
+}
+.yt-videos{
+
+    gap: 2rem;
+    margin: 2rem 20px 20px 20px;
+}
+
+
+/* ===== DOWNLOADS SECTION ===== */
+.downloads-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.downloads-section.moving {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.downloads-section {
+    position: relative;
+    z-index: 50;
+    background-color: #222222;
+    color: #ffffff;
+    padding: 50px 20px 20px 20px;
+    text-align: center;
+    font-family: sans-serif;
+    transition: transform 0.4s ease-out;
+    will-change: transform;
+}
+
+.download-heading{
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.16em;
+    font-family: "Roboto Condensed", sans-serif;
+    /* NEW: anchor the pillar to this heading box */
+    position: relative;
+    display: inline-block; /* centers the pillar under the text width */
+}
+/* Boxed style for the Downloads heading (only when .heading-box is present) */
+.downloads-section .download-heading.heading-box {
+    display: inline-block;         /* shrink box to fit the text */
+    padding: 2px 28px;             /* ← box thickness around the text */
+    border: 1px solid #A5A197;     /* box outline */
+    background: #222222; /* subtle fill on the dark bg */
+    border-radius: 8px 4px 8px 4px;            /* 0 = square corners, increase for pill */
+    color: #A5A197;                /* slight lift vs. body text */
+    text-decoration: none;         /* kill the underline your old style adds */
+    letter-spacing: 0.16em;        /* keep your brand spacing */
+    line-height: 1.1;              /* tighter inside the box */
+}
+
+/* Optional: a thin underline INSIDE the box (mimics your old underline) */
+.downloads-section .download-heading.heading-box::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-110%);
+    top: calc(100% + 14px); /* gap below the underline — tweak */
+    width: 4px;             /* thickness — tweak */
+    height: 60px;           /* length — tweak */
+    background: #c0c0c0;       /* color */
+}
+
+/* Optional: slight glow/shadow for contrast on very dark backgrounds */
+.downloads-section .download-heading.heading-box {
+    box-shadow:
+            0 1px 0 rgba(255,255,255,0.02) inset,
+            0 6px 20px rgba(0,0,0,0.3);
+}
+
+.downloads-links {
+    display: flex;
+    font-weight: 500;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    gap: 200px;
+    margin-bottom: 10px;
+}
+
+.platform-link {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 38px;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 5px;
+    margin-bottom: -50px;
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+.platform-link:hover {
+    color: #6096B5;
+    transition: all 0.3s ease;
+
+}
+
+
+
+
+.horizontal-line {
+    border-top: 1px solid #c0c0c0;
+    margin: 70px 0;
+
+}
+.horizontal-line-2{
+    padding: 2rem 0;
+}
+
+.user-manual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    max-width: 1000px;
+    column-gap: clamp(320px, 0vw, 800px);
+    margin: 0 auto;
+    margin-bottom: -50px;
+
+
+}
+
+.manual-title {
+
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 50px;
+    margin-left: 40px;
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+
+.manual-links{
+    display: flex ;
+    align-items: center;
+    margin-left: 0px;
+    gap: 20px;
+}
+.manual-links a {
+    color: #ccc;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 5px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.separator2{
+    width: 1px;
+    height: 27px;
+    background-color: #fff;
+}
+
+.manual-links a:hover {
+    color: #6096B5;
+    transition: all 0.3s ease;
+
+}
+
+.description, .donation-note {
+    max-width: 864px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #ccc;
+    text-align: center;
+    font-size: 17px;
+    line-height: 24px;
+
+}
+
+
+/* Keep the donation text left-aligned inside this row only */
+.donate-row .description,
+.donate-row .donation-note {
+    text-align: center;
+    margin: 0;                       /* remove extra paragraph spacing */
+}
+
+/* --- Donation two-column row (text left, Ko-fi button centered on right) --- */
+:root{
+    --donate-col: 650px;         /* match your text max-width */
+    --donate-gap: 0px;          /* space between text and button column */
+}
+
+.downloads-section .donate-row{
+    /* two equal “halves”, centered on the page */
+    display: grid;
+    grid-template-columns: var(--donate-col) var(--donate-col);
+    justify-content: center;     /* centers the two columns as a block */
+    align-items: center;
+    column-gap: var(--donate-gap);
+    margin: 1.5rem auto 0;      /* centers the whole block on the page */
+}
+
+.downloads-section .donate-copy{
+    max-width: var(--donate-col);
+    /* keep your own text styles; nothing else needed here */
+}
+
+.downloads-section .donate-cta{
+    /* centers the Ko-fi button within the right half */
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 210px;
+    align-items: center;
+    min-height: 48px;            /* keeps the row stable while the widget loads */
+}
+
+.donate-cta #kofiwidget2-container,
+.donate-cta [id^="kofi-widget"],
+.donate-cta [id^="kofiwidget"],
+.donate-cta a.kofi-button {
+    display: inline-block;
+    transform: scale(1.35);
+    transform-origin: right center;
+}
+
+/* Stack on tablet/mobile so it doesn’t feel cramped */
+@media (max-width: 1280px){
+    .downloads-section .donate-row{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    .downloads-section .donate-cta{
+        justify-content: center; /* center the button under the text */
+    }
+}
+
+/* Stack nicely on small screens */
+@media (max-width: 806px) {
+    .donate-row {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 12px;
+    }
+    .donate-row .description,
+    .donate-row .donation-note {
+        text-align: center;
+    }
+    .donate-cta iframe {
+        transform: none; /* full size on mobile */
+    }
+}
+
+
+.footer-text {
+    margin-top: 20px;
+    color: #ccc;
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+@media(max-width:1280px){
+    .yt-videos-inner{
+        padding: 0px 0px 2rem 0px;
+
+    }
+    .divider {
+
+        padding-top: 2.5rem;
+
+    }
+    .horizontal-line {
+        margin: 30px 0;
+    }
+
+    .footer-text {
+        margin-top: 5rem;
+    }
+    .description{
+        margin-top: 2rem;
+
+    }
+    .description, .donation-note {
+        max-width: 670px;
+    }
+    .downloads-links {
+        max-width: 706px;
+        justify-content: space-between;
+
+    }
+    .separator2{
+        height: 17px;
+
+
+    }
+    .horizontal-line-2{
+        display: none;
+    }
+
+    .separator {
+
+        height: 103px;
+
+    }
+    .user-manual {
+        max-width: 550px;
+    }
+    .downloads-links{
+        align-items: start;
+    }
+    .download-heading{
+        font-size: 27.5436px;
+        line-height: 32px;
+    }
+
+    .platform-link{
+        font-size: 21.5px;
+        line-height: 25px;
+    }
+    .manual-title, .manual-links a{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .hero-right-side{
+        margin-top: -5rem;
+        width: 720px;
+        flex-shrink: initial;
+
+
+    }
+    .hero-left-side h2,  .highlight, .description2 {
+
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .list{
+        padding-bottom: 10px;
+    }
+
+    .list li {
+
+        font-size: 9px;
+        line-height: 15px;
+    }
+    .footer {
+        font-size: 8px;
+        line-height: 9px;
+
+    }
+
+    .hero-section{
+        margin-top: -1.1rem;
+
+        height: 350px;
+        min-height: 350px;
+
+    }
+
+    .title {
+        font-size: 24px;
+
+    }
+    .downloads-section {
+
+        padding: 20px 20px;
+
+
+    }
+
+}
+
+
+@media(max-width:1280px){
+
+    .list {
+        margin: 20px 20px 20px 20px;
+    }
+    .hero-left-side {
+        width: 45%;
+    }
+    .hero-right-side{
+        margin-top: -2rem;
+
+    }
+    .hero-section{
+        margin-top: -0.8rem;
+
+        height: 430px;
+        min-height: 430px;
+
+    }
+}
+
+
+@media(max-width:806px){
+    body{
+        padding-top: 38.5%;
+    }
+
+    .footer-text {
+        margin-top: 8rem;
+    }
+    .description{
+        margin-top: 1rem;
+
+    }
+
+    .desktop-banner, .ui-preview-desktop{
+        display: none;
+    }
+    .mobile-banner, .ui-preview-mobile{
+        display: block;
+
+    }
+    .ui-preview-mobile{
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-video {
+        top: 33.8%;
+        left: 7%;
+        width: 86.8%;
+
+    }
+
+
+    .tooltip-box-3{
+        left: 64%;
+
+    }
+
+    .hero-section{
+        margin-top: -2.4rem;
+        padding-top: 1rem;
+        height: auto !important;
+        padding-bottom: 0;
+    }
+    .hero-content{
+        flex-direction: column;
+    }
+    .hero-left-side, .hero-right-side{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .yt-videos{
+        flex-direction: column;
+    }
+    .videos-ifrme{
+        width: 100%;
+    }
+    .title {
+        font-size: 18px;
+
+    }
+
+    .downloads-links{
+        padding: 0 10px;
+    }
+    .user-manual{
+        width: 79%;
+    }
+    .hero-left-side h2,  .highlight, .description2 {
+        font-size: 12.6586px;
+        line-height: 15px;
+
+    }
+
+    .list li {
+
+        font-size: 12.1195px;
+        line-height: 20px;
+    }
+    .footer {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .description, .donation-note {
+        font-size: 12px;
+
+    }
+    .yt-videos-section, .yt-videos-inner{
+
+        padding-top: 0;
+    }
+
+}
+
+/* Desktop: Tutorials panel sizing + video layout */
+@media (min-width: 1281px) {
+    :root {
+        --yt-gap: 28px;        /* gap between videos */
+        --yt-panel-min: 901px; /* ← set to your Figma panel height */
+    }
+
+    /* layering: hero UI above, tutorials below but allowed to underlap */
+    .hero-section { position: relative; z-index: 40; }
+    .hero-section .hero-content { position: relative; z-index: 41; }
+    .yt-videos-section { position: relative; z-index: 20; overflow: visible; }
+
+    /* white panel: underlap + sticky + exact size control */
+    .yt-videos-inner {
+        position: sticky;
+        top: 0px;                 /* sticks under banner (tweak 50–90) */
+        margin-top: -140px;        /* raises start into hero (tweak to taste) */
+        min-height: var(--yt-panel-min);  /* grows if you add more videos */
+        box-sizing: border-box;
+        background-color: #D9D9D9;    /* set panel to pure white */
+        /* inside spacing: top = your existing 3rem, bottom = flexible so no beige shows */
+        padding: 2rem 0 clamp(2rem, 3vw, 8rem);
+    }
+
+    /* video row: two-up that wraps if you add more */
+    .yt-videos {
+        display: flex;
+        flex-wrap: wrap;                 /* allows additional rows later */
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--yt-gap);
+    }
+
+    .yt-videos > iframe,
+    .yt-videos > .videos-ifrme,
+    .yt-videos > .videos-iframe {
+        width: clamp(560px, calc(48vw - var(--yt-gap)/2), 720px); /* your 48vw dial */
+        flex: 0 1 clamp(560px, calc(48vw - var(--yt-gap)/2), 720px);
+        aspect-ratio: 16 / 9;
+        height: auto;
+        border: 0;
+    }
+}
+/* Desktop: enable smooth transforms for YT parallax layers */
+@media (min-width: 1281px) {
+    .yt-videos-section { position: relative; overflow: visible; }
+    .yt-videos, .divider { will-change: transform; }
+}
+/* Desktop: let the white panel itself drift via a CSS variable */
+@media (min-width: 1281px) {
+    .yt-videos-inner {
+        transform: translateY(var(--panel-y, 0px)); /* JS writes --panel-y */
+        will-change: transform;                     /* smoother on scroll */
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .yt-videos, .divider { transform: none !important; }
+}
+
+@media (min-width: 1281px) {
+    .downloads-wrapper {
+        overflow: visible;
+        min-height: calc(100vh + 500px); /* gives the effect a scroll range */
+    }
+    .downloads-section {
+        position: sticky;
+        bottom: 0;
+        z-index: 50;
+        transform: none;  /* don't move the container */
+    }
+    .downloads-section .downloads-links {
+        will-change: transform;  /* smoother GPU transform on the inner row */
+    }
+
+/* accessibility: no motion for folks who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .downloads-section .downloads-links { transform: none !important; }
+}
+

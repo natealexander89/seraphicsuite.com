@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Seraphic Suite - Midnamer Landing Page </title>
+</head>
+<body>
+<!--banner-->
+<img src="./assets/Page Banner Desktop.png" alt="banner" class="desktop-banner">
+<img src="./assets/Page Banner Mobile.png" alt="banner" class="mobile-banner">
+
+<!--Hero section-->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-left-side">
+            <div class="intro">
+                <p class="intro-top">
+                    Midnamer is the first and only free Articulation Maps creator for Avid Pro Tools and is available for MacOS and Windows.
+                </p>
+
+                <p class="intro-mid">
+                    Get ready to <span class="u">totally</span> upgrade the way you compose.
+                </p>
+
+                <p class="intro-lead">
+                    Articulation Maps can be used in Pro Tools by taking advantage of an exploit of the Patch Selector window. While this feature is not native, it is fully functional and can help you:
+                </p>
+
+                <ul class="intro-list">
+                    <li>Work Faster and Smarter -- Forget Pain In The Ass Keyswitches.</li>
+                    <li>Stay In Pro Tools, Stay Focused. Stop Hopping Through Plugins.</li>
+                    <li>Decrease Template Size -- 1 Inst., 1 Track, All Articulations.</li>
+                    <li>Easily Re‑Orchestrate Mock‑ups Between Different Libraries.</li>
+                    <li>Show Your Orchestrator Exactly What You Intended.</li>
+                </ul>
+
+                <div class="intro-rule"></div>
+
+                <p class="intro-foot">
+                    To learn more about how Articulation Maps work in Pro Tools <br>see the tutorial and demo videos below
+                </p>
+            </div>
+        </div>
+        <div class="hero-right-side">
+            <img src="./assets/UI Preview and Callouts_Desktop.png" alt="UI preview and Callouts"
+                 class="ui-preview-desktop">
+            <img src="./assets/UI Preview and Callouts_Mobile.png" alt="UI preview and Callouts" class="ui-preview-mobile">
+            <video
+                    src="https://seraphic-suite.b-cdn.net/Midnamer-Demo.webm"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    class="hero-video">
+            </video>
+        </div>
+    </div>
+</section>
+
+<!--Tutorials and Demo section-->
+<section class="yt-videos-section">
+    <div class="yt-videos-inner">
+        <div class="divider fade-in">
+            <span class="line"></span>
+            <h2 class="title ">Tutorials and Demos</h2>
+            <span class="line"></span>
+        </div>
+        <div class="yt-videos flex-between">
+            <iframe width="560" class="videos-ifrme" height="315px" src="https://www.youtube.com/embed/zVZdrwoqsCM?si=aUK407x4OXq0neCj"
+                    title="Midnamer Demo Mockup - The Clocktower Pt.2 (BttF)" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" class="videos-ifrme" height="315px" src="https://youtube.com/embed/6G-iJNS-IxI?si=HxOyuHZzXzJhOt7j"
+                    title="The Best and Worst of Willy Wonka and the Chocolate Factory" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!--Download Section-->
+<section class="downloads-section">
+    <h2 class="download-heading heading-box">Downloads</h2>
+
+    <div class="downloads-links">
+        <a id="mac-link" class="platform-link"
+           href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Mac%20Distros/3.7.1/Midnamer.dmg">
+            macOS
+        </a>
+
+        <a href="#" class="platform-link">Windows</a>
+    </div>
+    <div class="horizontal-line horizontal-line-2"></div>
+
+    <div class="horizontal-line"></div>
+
+    <div class="user-manual">
+        <div class="manual-title">User Manual</div>
+        <div class="manual-links">
+            <a target="_blank" rel="noopener noreferrer" href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/User%20Manuals/Midnamer%20Manual%20v3.7.pdf">View</a>
+            <div class="separator2"></div>
+
+            <a href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/User%20Manuals/Midnamer%20Manual%20v3.7.pdf" download="Midnamer Manual v3.7.pdf">Download</a>
+        </div>
+    </div>
+
+    <div class="horizontal-line"></div>
+
+    <div class="donate-row">
+        <!-- LEFT: your existing copy -->
+        <div class="donate-copy">
+            <p class="description">
+                Midnamer is free and will be for the foreseeable future.
+            </p>
+            <br />
+            <p class="donation-note">
+                But, if you are enjoying the app or are using it in a commercial setting,
+                please show your <br>appreciation by donating so that I can continue developing
+                and hosting this community resource.
+            </p>
+        </div>
+
+        <!-- RIGHT: Ko-fi button lives here -->
+        <div class="donate-cta">
+            <script type="text/javascript" src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
+            <script type="text/javascript">
+                // draws the inline button right here, inside .donate-cta
+                kofiwidget2.init('Donate To Midnamer', '#222222', 'A0A61FONP8');
+                kofiwidget2.draw('kofi-inline');
+            </script>
+        </div>
+    </div>
+    <footer class="footer-text">© 2025 Seraphic Suite</footer>
+</section>
+<!--JS for Hero section-->
+<script>
+    const heroSection = document.querySelector('.hero-section');
+
+    function handleHeroResize() {
+        let minHeight;
+        let maxHeight;
+        let endScroll;
+        const startScroll = 0;
+
+        if (window.innerWidth < 1024) {
+            minHeight = 430;
+            maxHeight = 450;
+            endScroll = 500;
+        } else if (window.innerWidth < 1612) {
+            minHeight = 350;
+            maxHeight = 520;
+            endScroll = 650;
+        } else {
+            minHeight = 463;
+            maxHeight = 710;
+            endScroll = 600;
+        }
+
+        if (window.innerWidth <= 802) {
+            heroSection.style.height = `${minHeight}px`;
+            return;
+        }
+
+        const rect = heroSection.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (!inView) return;
+
+        const scrollTop = window.scrollY;
+
+        if (scrollTop <= startScroll) {
+            heroSection.style.height = `${minHeight}px`;
+        } else if (scrollTop >= endScroll) {
+            heroSection.style.height = `${maxHeight}px`;
+        } else {
+            const progress = (scrollTop - startScroll) / (endScroll - startScroll);
+            const newHeight = minHeight + (maxHeight - minHeight) * progress;
+            heroSection.style.height = `${newHeight}px`;
+        }
+    }
+
+    window.addEventListener('scroll', handleHeroResize);
+    window.addEventListener('resize', handleHeroResize);
+</script>
+
+</script>
+<!--JS for Text Reveal-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heading = document.querySelector(".divider");
+        const videosSection = document.querySelector(".yt-videos");
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heading.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(videosSection);
+    });
+</script>
+
+<script>
+    /* Tutorials parallax (desktop only)
+       - DRIFT_*: pixels of movement (amplitude)
+       - RANGE:   scale of the scroll range    (1 = normal, 1.5 = slower, 0.7 = faster)
+       - CURVE:   easing power on progress     (1 = linear ease, 1.5 = slower start)
+       Direction: positive moves DOWN (inverse), negative moves UP.
+    */
+    (() => {
+        const section = document.querySelector('.yt-videos-section');
+        const title   = section?.querySelector('.divider');
+        const tiles   = section?.querySelector('.yt-videos');
+        if (!section || !title || !tiles) return;
+
+        // ===== KNOBS YOU’LL TUNE MOST OFTEN =====
+        const DRIFT_TITLE = +20;   // px  (title/line)  + = down,  - = up
+        const DRIFT_TILES = +30;   // px  (video grid)  + = down,  - = up
+        const RANGE       = 1.5;  // 1.25 = slower, 0.85 = faster
+        const CURVE       = 1;  // 1.35 = slower at start; 1 = linear
+
+        const layers = [
+            { el: title, max: DRIFT_TITLE },
+            { el: tiles, max: DRIFT_TILES }
+        ];
+
+        let ticking = false;
+        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+        const ease  = t => t * (2 - t);          // base ease-out
+        const curve = (t, p) => t ** p;          // shape the progress
+
+        function update() {
+            const rect  = section.getBoundingClientRect();
+            const vh    = window.innerHeight;
+
+            // Progress of the section through the viewport:
+            // We extend the range by RANGE to make the motion feel slower if RANGE > 1.
+            const total = (rect.height + vh) * RANGE;
+            const seen  = clamp(vh - rect.top, 0, total);
+            const t0    = seen / total;            // 0 → 1 across the range
+            const t     = ease(curve(t0, CURVE));  // apply curve, then ease-out
+
+            layers.forEach(({ el, max }) => {
+                el.style.transform = `translateY(${max * t}px)`; // + down, - up
+            });
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+
+        const desktop = window.matchMedia('(min-width: 1281px)');
+        const reduce  = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reduce.matches) return;
+
+        function attach() {
+            // Clear transforms if not desktop
+            if (!desktop.matches) {
+                layers.forEach(({ el }) => (el.style.transform = ''));
+                window.removeEventListener('scroll', onScroll, { passive: true });
+                window.removeEventListener('resize', onScroll, { passive: true });
+                return;
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+            update();
+        }
+
+        attach();
+        desktop.addEventListener?.('change', attach);
+    })();
+</script>
+<script>
+    /* Panel parallax (desktop)
+       - DRIFT_PANEL: pixels the white panel moves overall ( + = down, - = up )
+       - RANGE:       how long the scroll range feels (bigger = slower)
+       - CURVE:       ease on progress (1 = linear, >1 slower start)
+    */
+    (() => {
+        const section = document.querySelector('.yt-videos-section');
+        const panel   = section?.querySelector('.yt-videos-inner');
+        if (!section || !panel) return;
+
+        const DRIFT_PANEL = +200;  // tweak: + = drift down (inverse), - = drift up
+        const RANGE       = .9; // 1.25 slower, 0.9 faster
+        const CURVE       = .5; // 1.35 slower at start; 1 = linear
+
+        let ticking = false;
+        const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+        const curve = (t,p) => t ** p;
+        const ease  = t => t * (2 - t); // ease-out
+
+        function update() {
+            const rect  = section.getBoundingClientRect();
+            const vh    = window.innerHeight;
+
+            // progress of the section through the viewport
+            const total = (rect.height + vh) * RANGE;
+            const seen  = clamp(vh - rect.top, 0, total);
+            const t0    = seen / total;
+            const t     = ease(curve(t0, CURVE));
+
+            // write the offset to a CSS variable on the panel
+            panel.style.setProperty('--panel-y', `${DRIFT_PANEL * t}px`);
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+
+        const desktop = window.matchMedia('(min-width: 1281px)');
+        const reduce  = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reduce.matches) return;
+
+        function attach() {
+            if (!desktop.matches) {
+                panel.style.removeProperty('--panel-y');
+                window.removeEventListener('scroll', onScroll, { passive: true });
+                window.removeEventListener('resize', onScroll, { passive: true });
+                return;
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+            update();
+        }
+
+        attach();
+        desktop.addEventListener?.('change', attach);
+    })();
+</script>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1572902');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Place this script as the LAST thing before </body> -->
+<script>
+    // Helper: safely open the MailerLite popup even if their script is still loading
+    function showMailerLite(formId) {
+        const tryShow = (n = 0) => {
+            if (typeof window.ml === 'function') {
+                ml('show', formId, true);
+            } else if (n < 30) {            // retry for ~3s total
+                setTimeout(() => tryShow(n + 1), 100);
+            } else {
+                console.warn('MailerLite not ready.');
+            }
+        };
+        tryShow();
+    }
+
+    // Attach popup+download behavior to any link
+    function attachPopupDownload(selector, formId, delayMs = 350, newTab = true) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+
+        el.addEventListener('click', (e) => {
+            e.preventDefault();                 // we’ll handle navigation
+            showMailerLite(formId);             // open ML popup
+            const url = el.href;
+
+            // start the download slightly after the popup
+            setTimeout(() => {
+                if (newTab) {
+                    window.open(url, '_blank', 'noopener');
+                } else {
+                    location.href = url;
+                }
+            }, delayMs);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // macOS link
+        attachPopupDownload('#mac-link', 'Sozez0', 350, true);
+
+        // If you add a Windows link later:
+        // <a id="win-link" class="platform-link" href="...">Windows</a>
+        // attachPopupDownload('#win-link', 'Sozez0', 350, true);
+    });
+</script>
+
+</body>
+
+</html>
