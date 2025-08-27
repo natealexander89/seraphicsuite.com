@@ -90,12 +90,38 @@
     <h2 class="download-heading heading-box">Downloads</h2>
 
     <div class="downloads-links">
-        <a id="mac-link" class="platform-link"
-           href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Mac%20Distros/3.7.1/Midnamer.dmg">
+        <!-- macOS -->
+        <a class="platform-link"
+           href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Mac%20Distros/3.7.1/Midnamer.dmg"
+           onclick="
+     (function(el, id){
+       // 1) show the popup immediately (same click)
+       try { if (typeof ml==='function') ml('show', id, true); } catch(e){}
+
+       // 2) start the download shortly after so the popup can render
+       setTimeout(function(){ window.open(el.href, '_blank', 'noopener'); }, 200);
+     })(this, 'Sozez0');
+     return false; /* keep current page focused for the popup */
+   ">
             macOS
         </a>
-
-        <a href="#" class="platform-link">Windows</a>
+        <!-- Windows -->
+        <a class="platform-link"
+           href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Windows%20Distros/3.7.1/Midnamer.exe"
+           onclick="
+     (function(el, id){
+       var href = el.href;
+       var dl = window.open('about:blank','_blank');
+       try { if (typeof ml==='function') ml('show', id, true); } catch(e){}
+       setTimeout(function(){
+         try { if (dl && !dl.closed) dl.location.href = href; else window.open(href,'_blank'); }
+         catch(_) { window.open(href,'_blank'); }
+       }, 120);
+       return false;
+     })(this, 'Sozez0');
+   ">
+            Windows
+        </a>
     </div>
     <div class="horizontal-line horizontal-line-2"></div>
 
@@ -189,7 +215,6 @@
     window.addEventListener('resize', handleHeroResize);
 </script>
 
-</script>
 <!--JS for Text Reveal-->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -354,52 +379,7 @@
     ml('account', '1572902');
 </script>
 <!-- End MailerLite Universal -->
-<!-- Place this script as the LAST thing before </body> -->
-<script>
-    // Helper: safely open the MailerLite popup even if their script is still loading
-    function showMailerLite(formId) {
-        const tryShow = (n = 0) => {
-            if (typeof window.ml === 'function') {
-                ml('show', formId, true);
-            } else if (n < 30) {            // retry for ~3s total
-                setTimeout(() => tryShow(n + 1), 100);
-            } else {
-                console.warn('MailerLite not ready.');
-            }
-        };
-        tryShow();
-    }
 
-    // Attach popup+download behavior to any link
-    function attachPopupDownload(selector, formId, delayMs = 350, newTab = true) {
-        const el = document.querySelector(selector);
-        if (!el) return;
-
-        el.addEventListener('click', (e) => {
-            e.preventDefault();                 // we’ll handle navigation
-            showMailerLite(formId);             // open ML popup
-            const url = el.href;
-
-            // start the download slightly after the popup
-            setTimeout(() => {
-                if (newTab) {
-                    window.open(url, '_blank', 'noopener');
-                } else {
-                    location.href = url;
-                }
-            }, delayMs);
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        // macOS link
-        attachPopupDownload('#mac-link', 'Sozez0', 350, true);
-
-        // If you add a Windows link later:
-        // <a id="win-link" class="platform-link" href="...">Windows</a>
-        // attachPopupDownload('#win-link', 'Sozez0', 350, true);
-    });
-</script>
 
 </body>
 
