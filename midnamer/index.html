@@ -104,23 +104,13 @@
         <!-- macOS -->
         <a class="platform-link ml-onclick-form download-mac"
            href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Mac%20Distros/3.7.1/Midnamer.dmg"
-           onclick="
-            if (!sessionStorage.getItem('ml_seen')) {
-           ml('show','Sozez0',true);
-           sessionStorage.setItem('ml_seen','1');   /* cap: show once this session */
-         }
-         return true;  /* always let the download proceed */">
+           onclick="ml('show', 'Sozez0', true)">
             macOS
         </a>
         <!-- Windows -->
         <a class="platform-link ml-onclick-form download-windows"
            href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Windows%20Distros/3.7.1/Midnamer.exe"
-           onclick="
-            if (!sessionStorage.getItem('ml_seen')) {
-           ml('show','Sozez0',true);
-           sessionStorage.setItem('ml_seen','1');   /* cap: show once this session */
-         }
-         return true;  /* always let the download proceed */">
+           onclick="ml('show', 'Sozez0', true)">
             Windows
         </a>
     </div>
