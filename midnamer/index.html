@@ -9,6 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Seraphic Suite - Midnamer Landing Page </title>
+    <!-- MailerLite Universal -->
+    <script>
+    (function(w,d,e,u,f,l,n){
+        w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
+        l=d.createElement(e); l.async=1;l.src=u;
+        n=d.getElementsByTagName(e)[0]; n.parentNode.insertBefore(l,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+
+    ml('account', '1572902');
+    </script>
+    <!-- End MailerLite Universal -->
 </head>
 <body>
 <!--banner-->
@@ -91,35 +102,25 @@
 
     <div class="downloads-links">
         <!-- macOS -->
-        <a class="platform-link"
+        <a class="platform-link ml-onclick-form download-mac"
            href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Mac%20Distros/3.7.1/Midnamer.dmg"
            onclick="
-     (function(el, id){
-       // 1) show the popup immediately (same click)
-       try { if (typeof ml==='function') ml('show', id, true); } catch(e){}
-
-       // 2) start the download shortly after so the popup can render
-       setTimeout(function(){ window.open(el.href, '_blank', 'noopener'); }, 200);
-     })(this, 'Sozez0');
-     return false; /* keep current page focused for the popup */
-   ">
+            if (!sessionStorage.getItem('ml_seen')) {
+           ml('show','Sozez0',true);
+           sessionStorage.setItem('ml_seen','1');   /* cap: show once this session */
+         }
+         return true;  /* always let the download proceed */">
             macOS
         </a>
         <!-- Windows -->
-        <a class="platform-link"
+        <a class="platform-link ml-onclick-form download-windows"
            href="https://seraphic-suite.b-cdn.net/Midnamer_App_CDN_MAIN/Windows%20Distros/3.7.1/Midnamer.exe"
            onclick="
-     (function(el, id){
-       var href = el.href;
-       var dl = window.open('about:blank','_blank');
-       try { if (typeof ml==='function') ml('show', id, true); } catch(e){}
-       setTimeout(function(){
-         try { if (dl && !dl.closed) dl.location.href = href; else window.open(href,'_blank'); }
-         catch(_) { window.open(href,'_blank'); }
-       }, 120);
-       return false;
-     })(this, 'Sozez0');
-   ">
+            if (!sessionStorage.getItem('ml_seen')) {
+           ml('show','Sozez0',true);
+           sessionStorage.setItem('ml_seen','1');   /* cap: show once this session */
+         }
+         return true;  /* always let the download proceed */">
             Windows
         </a>
     </div>
@@ -370,16 +371,6 @@
         desktop.addEventListener?.('change', attach);
     })();
 </script>
-<!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1572902');
-</script>
-<!-- End MailerLite Universal -->
-
 
 </body>
 
